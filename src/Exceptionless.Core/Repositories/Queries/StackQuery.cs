@@ -16,6 +16,10 @@ namespace Exceptionless.Core.Repositories {
         public static T Stack<T>(this T query, string stackId) where T : IRepositoryQuery {
             return query.AddCollectionOptionValue(StacksKey, stackId);
         }
+
+        public static T Stack<T>(this T query, string[] stackIds) where T : IRepositoryQuery {
+            return query.AddCollectionOptionValue(StacksKey, (IEnumerable<string>)stackIds);
+        }
     }
 }
 
